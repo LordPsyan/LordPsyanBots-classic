@@ -7,8 +7,9 @@ option(BUILD_LOGIN_SERVER   "Build login server"                    ON)
 option(BUILD_EXTRACTORS     "Build map/dbc/vmap/mmap extractors"    OFF)
 option(BUILD_SCRIPTDEV      "Build ScriptDev. (OFF Speedup build)"  ON)
 option(BUILD_PLAYERBOT      "Build Player Bots"                     ON)
-option(BUILD_RECASTDEMOMOD  "Build map/vmpa/mmap viewer"            OFF)
+option(BUILD_RECASTDEMOMOD  "Build map/vmap/mmap viewer"            OFF)
 option(BUILD_IMMERSIVE      "Build Immersive"                       ON)
+option(BUILD_GIT_ID         "Build git_id"                          OFF)
 
 # TODO: options that should be checked/created:
 #option(CLI                  "With CLI"                              ON)
@@ -31,8 +32,9 @@ message(STATUS
     BUILD_EXTRACTORS        Build map/dbc/vmap/mmap extractor
     BUILD_SCRIPTDEV         Build scriptdev. (Disable it to speedup build in dev mode by not including scripts)
     BUILD_PLAYERBOT         Build Player Bots module
-    BUILD_RECASTDEMOMOD     Build map/vmpa/mmap viewer
+    BUILD_RECASTDEMOMOD     Build map/vmap/mmap viewer
     BUILD_IMMERSIVE         Build Immersive module
+    BUILD_GIT_ID            Build git_id
 
   To set an option simply type -D<OPTION>=<VALUE> after 'cmake <srcs>'.
   Also, you can specify the generator with -G. see 'cmake --help' for more details
