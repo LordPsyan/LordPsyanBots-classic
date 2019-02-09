@@ -41,6 +41,9 @@
 #include "AI/ScriptDevAI/ScriptDevAIMgr.h"
 #include "vmap/GameObjectModel.h"
 #include "Server/SQLStorages.h"
+#ifdef ENABLE_IMMERSIVE
+#include "immersive.h"
+#endif
 
 GameObject::GameObject() : WorldObject(),
     m_model(nullptr),
@@ -1477,6 +1480,9 @@ void GameObject::Use(Unit* user)
 
                     // normal chance
                     bool success = skill >= zone_skill && chance >= roll;
+#ifdef ENABLE_IMMERSIVE
+                    success = sImmersive.OnFishing(player, success);
+#endif
                     GameObject* fishingHole = nullptr;
 
                     // overwrite fail in case fishhole if allowed (after 3.3.0)

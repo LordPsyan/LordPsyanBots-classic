@@ -3,7 +3,7 @@
 #####################################
 
 [MangosdConf]
-ConfVersion=2019020601
+ConfVersion=2018092101
 
 ###################################################################################################################
 # CONNECTIONS AND DIRECTORIES
@@ -651,20 +651,32 @@ LogColors = ""
 #        You can set it to very high value to prevent oldest guild events to be rewritten by latest guild events - but it can slow down performance
 #        Default: 100
 #
-#    MirrorTimer.Fatigue.Max
+#    TimerBar.Fatigue.GMLevel
+#        Disable/enable fatigue for security level (0..4) or high
+#        Default: 4 (None)
+#
+#    TimerBar.Fatigue.Max
 #        Fatigue max timer value (in secs)
 #        Default: 60 (1 minute)
-#                  0 (instant exhaustion damage start)
+#                  0 (instant death)
 #
-#    MirrorTimer.Breath.Max
+#    TimerBar.Breath.GMLevel
+#        Disable/enable waterbreathing for security level (0..4) or high
+#        Default: 4 (None)
+#
+#    TimerBar.Breath.Max
 #        Waterbreathing max timer value (in secs)
-#        Default: 60
-#                  0 (instant underwater breathing damage start)
+#        Default: 180
+#                   0 (instant underwater breathing damage start)
 #
-#    MirrorTimer.Environmental.Max
-#        Generic environmental (lava/slime/etc) damage delay max timer value (in secs)
+#    TimerBar.Fire.GMLevel
+#        Disable/enable lava fire damage for security level (0..4) or high
+#        Default: 4 (None)
+#
+#    TimerBar.Fire.Max
+#        Lava damage delay max timer value (in secs)
 #        Default:  1
-#                  0 (instant in liquid damage start)
+#                  0 (instant in lava damage start)
 #
 #    MaxPrimaryTradeSkill
 #        Max count that player can learn the primary trade skill.
@@ -701,14 +713,9 @@ LogColors = ""
 #        Default: 10
 #
 #    PetUnsummonAtMount
-#        Permanent pet will unsummoned at player mount
+#        Persmanent pet will unsummoned at player mount
 #        Default: 0 - not unsummon
 #                 1 - unsummon for any mount
-#
-#    PetAttackFromBehind
-#        Player controlled pet will attack from behind
-#        Default: 0 - Engage from any angle
-#                 1 - Engage from behind
 #
 #    Event.Announce
 #        Default: 0 (false)
@@ -779,9 +786,12 @@ Quests.HighLevelHideDiff = 7
 Quests.IgnoreRaid = 0
 Group.OfflineLeaderDelay = 300
 Guild.EventLogRecordsCount = 100
-MirrorTimer.Fatigue.Max = 60
-MirrorTimer.Breath.Max = 60
-MirrorTimer.Environmental.Max = 1
+TimerBar.Fatigue.GMLevel = 4
+TimerBar.Fatigue.Max = 60
+TimerBar.Breath.GMLevel = 4
+TimerBar.Breath.Max = 60
+TimerBar.Fire.GMLevel = 4
+TimerBar.Fire.Max = 1
 MaxPrimaryTradeSkill = 2
 TradeSkill.GMIgnore.MaxPrimarySkillsCount = 4
 TradeSkill.GMIgnore.Level = 4
@@ -791,7 +801,6 @@ MaxGroupXPDistance = 74
 MailDeliveryDelay = 3600
 MassMailer.SendPerTick = 10
 PetUnsummonAtMount = 0
-PetAttackFromBehind = 0
 Event.Announce = 0
 BeepAtStart = 1
 ShowProgressBars = 0
@@ -1264,12 +1273,12 @@ Visibility.AIRelocationNotifyDelay = 1000
 #         Default: 1
 #
 #    Rate.Reputation.LowLevel.Kill
-#         Lowest Reputation Gain rate from low level kill
+#         Reputation Gain form low level kill (grey creture)
 #         Default: 0.2
 #
 #    Rate.Reputation.LowLevel.Quest
-#         Lowest Reputation Gain rate from low level quest
-#         Default: 0.2
+#         Reputation Gain rate
+#         Default: 1
 #
 #    Rate.InstanceResetTime
 #        Multiplier for the number of days in between global raid/heroic instance resets.
@@ -1387,7 +1396,7 @@ Rate.Mining.Next   = 1
 Rate.Talent = 1
 Rate.Reputation.Gain = 1
 Rate.Reputation.LowLevel.Kill    = 0.2
-Rate.Reputation.LowLevel.Quest   = 0.2
+Rate.Reputation.LowLevel.Quest   = 1
 Rate.InstanceResetTime = 1
 SkillGain.Crafting = 1
 SkillGain.Defense = 1
